@@ -6,7 +6,7 @@ import android.text.TextUtils
 fun isValidNameValue(nameValue: Editable?): Boolean {
     return !(nameValue == null
             || TextUtils.isEmpty(nameValue)
-            || nameValue.length !in 4..9
+            || nameValue.length !in 6..15
             )
 }
 
