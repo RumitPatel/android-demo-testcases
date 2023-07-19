@@ -1,46 +1,33 @@
 package com.rumit.android_testcase_example
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.rumit.android_testcase_example.ui.theme.AndroidtestcaseexampleTheme
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.rumit.android_testcase_example.Constants.USER_NAME
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            AndroidtestcaseexampleTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+        setContentView(R.layout.activity_main)
+
+        val btnStart: Button = findViewById(R.id.btn_start)
+        val etName: EditText = findViewById(R.id.et_name)
+        btnStart.setOnClickListener {
+
+            if (etName.text.isEmpty()) {
+                Toast.makeText(
+                    this,
+                    "Please enter your name", Toast.LENGTH_LONG
+                ).show()
+            } else {
+                val intent = Intent(this, QuizQuestionsActivity::class.java)
+                intent.putExtra(USER_NAME, etName.text.toString())
+                startActivity(intent)
+                finish()
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AndroidtestcaseexampleTheme {
-        Greeting("Android")
     }
 }
