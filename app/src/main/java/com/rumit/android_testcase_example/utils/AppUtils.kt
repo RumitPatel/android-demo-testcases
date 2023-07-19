@@ -9,3 +9,11 @@ fun isValidNameValue(nameValue: Editable?): Boolean {
             || nameValue.length !in 4..9
             )
 }
+
+fun reverseString(inputValue: String?): String {
+    return if (inputValue != null && !TextUtils.isEmpty(inputValue)) {
+        inputValue.reversed()
+    } else {
+        ""
+    }
+}
