@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.rumit.android_testcase_example.Constants.CORRECT_ANSWERS
 import com.rumit.android_testcase_example.Constants.TOTAL_QUESTIONS
 import com.rumit.android_testcase_example.Constants.USER_NAME
+import com.rumit.android_testcase_example.utils.shareText
 
 class ResultActivity : AppCompatActivity() {
 
@@ -18,6 +19,7 @@ class ResultActivity : AppCompatActivity() {
         val tvName: TextView = findViewById(R.id.tv_name)
         val tvScore: TextView = findViewById(R.id.tv_score)
         val btnFinish: Button = findViewById(R.id.btn_finish)
+        val btnShareScore: Button = findViewById(R.id.btnShareScore)
 
         tvName.text = intent.getStringExtra(USER_NAME)
         val totalQuestions = intent.getIntExtra(TOTAL_QUESTIONS, 0)
@@ -26,6 +28,10 @@ class ResultActivity : AppCompatActivity() {
 
         btnFinish.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+        }
+
+        btnShareScore.setOnClickListener {
+            shareText("I had an amazing quiz!")
         }
     }
 }
