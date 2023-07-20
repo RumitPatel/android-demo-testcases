@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val etName: EditText = findViewById(R.id.et_name)
         btnStart.setOnClickListener {
 
-            if (isValidNameValue(etName.text)) {
+            if (isValidNameValue(etName.text.toString().trim())) {
                 val intent = Intent(this, QuizQuestionsActivity::class.java)
                 intent.putExtra(USER_NAME, etName.text.toString())
                 startActivity(intent)

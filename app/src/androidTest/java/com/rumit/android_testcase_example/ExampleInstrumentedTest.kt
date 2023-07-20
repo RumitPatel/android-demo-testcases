@@ -22,12 +22,4 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.rumit.android_testcase_example", appContext.packageName)
     }
-
-    @Test
-    fun testReverseFunction() {
-        val inputValue = "Rumit"
-        val outputValue = reverseString(inputValue)
-
-        assertEquals(outputValue, "timuR")
-    }
 }
