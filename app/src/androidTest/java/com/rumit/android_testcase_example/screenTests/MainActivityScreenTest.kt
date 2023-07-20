@@ -5,8 +5,8 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.rumit.android_testcase_example.MainActivity
-import com.rumit.android_testcase_example.robots.main
-import com.rumit.android_testcase_example.robots.quizQuestions
+import com.rumit.android_testcase_example.robots.mainActivityScope
+import com.rumit.android_testcase_example.robots.quizActivityScope
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,7 +20,7 @@ class MainActivityScreenTest {
     @Test
     @LargeTest
     fun titleIsShown() {
-        main {
+        mainActivityScope {
             titleIsShown()
         }
     }
@@ -28,11 +28,11 @@ class MainActivityScreenTest {
     @Test
     @LargeTest
     fun canEnterNameAndSeeNextScreen() {
-        main {
+        mainActivityScope {
             enterName("Robert")
             pressStart()
         }
-        quizQuestions {
+        quizActivityScope {
             isOnQuestionsScreen()
         }
     }
