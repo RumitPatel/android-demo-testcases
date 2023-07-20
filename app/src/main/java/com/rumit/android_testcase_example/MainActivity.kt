@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.rumit.android_testcase_example.Constants.USER_NAME
+import com.rumit.android_testcase_example.utils.isValidNameValue
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,16 +18,16 @@ class MainActivity : AppCompatActivity() {
         val etName: EditText = findViewById(R.id.et_name)
         btnStart.setOnClickListener {
 
-            if (etName.text.isEmpty()) {
-                Toast.makeText(
-                    this,
-                    "Please enter your name", Toast.LENGTH_LONG
-                ).show()
-            } else {
+            if (isValidNameValue(etName.text)) {
                 val intent = Intent(this, QuizQuestionsActivity::class.java)
                 intent.putExtra(USER_NAME, etName.text.toString())
                 startActivity(intent)
                 finish()
+            } else {
+                Toast.makeText(
+                    this,
+                    "Please enter valid name. Characters should between 4 to 9", Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

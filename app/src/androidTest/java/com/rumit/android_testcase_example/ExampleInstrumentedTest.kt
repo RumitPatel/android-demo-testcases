@@ -2,6 +2,7 @@ package com.rumit.android_testcase_example
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.rumit.android_testcase_example.utils.reverseString
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,5 +21,13 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.rumit.android_testcase_example", appContext.packageName)
+    }
+
+    @Test
+    fun testReverseFunction() {
+        val inputValue = "Rumit"
+        val outputValue = reverseString(inputValue)
+
+        assertEquals(outputValue, "timuR")
     }
 }
