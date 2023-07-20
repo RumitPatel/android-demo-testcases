@@ -2,7 +2,7 @@ package com.rumit.android_testcase_example.robots
 
 import com.rumit.android_testcase_example.R
 
-fun quizQuestions(func: QuizQuestionsRobot.() -> Unit) =
+fun quizActivityScope(func: QuizQuestionsRobot.() -> Unit) =
     QuizQuestionsRobot().apply { func() }
 
 class QuizQuestionsRobot : BaseTestRobot() {

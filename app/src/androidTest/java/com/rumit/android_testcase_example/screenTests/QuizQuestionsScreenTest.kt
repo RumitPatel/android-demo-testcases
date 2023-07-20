@@ -4,7 +4,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.rumit.android_testcase_example.QuizQuestionsActivity
-import com.rumit.android_testcase_example.robots.quizQuestions
+import com.rumit.android_testcase_example.robots.quizActivityScope
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,7 +18,7 @@ class QuizQuestionsScreenTest {
     @Test
     @LargeTest
     fun titleIsShown() {
-        quizQuestions {
+        quizActivityScope {
             isOnQuestionsScreen()
         }
     }
@@ -26,7 +26,7 @@ class QuizQuestionsScreenTest {
     @Test
     @LargeTest
     fun canAnswerQuestion() {
-        quizQuestions {
+        quizActivityScope {
             titleIsShown()
             selectAnswer(1)
             clickSubmit()

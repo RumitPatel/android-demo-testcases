@@ -2,7 +2,7 @@ package com.rumit.android_testcase_example.robots
 
 import com.rumit.android_testcase_example.R
 
-fun main(func: MainActivityRobot.() -> Unit) =
+fun mainActivityScope(func: MainActivityRobot.() -> Unit) =
     MainActivityRobot().apply { func() }
 
 class MainActivityRobot : BaseTestRobot() {
